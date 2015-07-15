@@ -1,4 +1,5 @@
 
+//commit made by Crystal O'Mara
 if ("userInput" === "spinner") {
   alert("Win!");
 } else {
