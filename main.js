@@ -1,10 +1,3 @@
-
-if ("userInput" === "spinner") {
-  alert("Win!");
-} else {
-  alert("Lose");
-}
-
 function randomSpin(){
 var red = "red";
 var black = "black";
@@ -58,3 +51,10 @@ return [num, color];
 }
 
 console.log(randomSpin());
+
+
+if ("userInput" === "spinner") {
+  alert("Win!");
+} else {
+  alert("Lose");
+}
