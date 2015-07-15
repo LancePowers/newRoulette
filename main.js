@@ -1,10 +1,13 @@
 //commit made by Crystal O'Mara
-if ("userInput" === "spinner") {
-  alert("Win!");
-} else {
-  alert("Lose");
+//Function to get and verify users input
+function input() {
+  var userInput = prompt ("Pick a number 1-36");
+  while ((userInput > 36) ||(userInput < 0)) {
+    userInput = prompt ("Sorry that's not a number 1-36. Try again");
+  }
+  return userInput;
 }
-
+// function to return spot number and color as an array
 function randomSpin(){
 var red = "red";
 var black = "black";
@@ -57,11 +60,15 @@ var color = wheel[spot-1].color;
 return [num, color];
 }
 
-console.log(randomSpin());
 
+var input = input();
+console.log(input);
+var result = randomSpin()[0];
+console.log(result);
 
-if ("userInput" === "spinner") {
+if (input === result.toString()) {
   alert("Win!");
 } else {
+  console.log(input, result);
   alert("Lose");
 }
