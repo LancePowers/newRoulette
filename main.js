@@ -1,6 +1,9 @@
 //commit made by Crystal O'Mara
 //Function to get and verify users input
+var chips = 100;
+var bet;
 function input() {
+  bet = prompt("You have " + chips + "How much would you like to bet?");
   var userInput = prompt ("Pick a number 1-36");
   while ((userInput > 36) ||(userInput < 0)) {
     userInput = prompt ("Sorry that's not a number 1-36. Try again");
@@ -12,63 +15,70 @@ function randomSpin(){
 var red = "red";
 var black = "black";
 var wheel = [
-  {num: 1, color: red},
-  {num: 2, color: black},
-  {num: 3, color: red},
-  {num: 4, color: black},
-  {num: 5, color: red},
-  {num: 6, color: black},
-  {num: 7, color: red},
-  {num: 8, color: black},
-  {num: 9, color: red},
-  {num: 10, color: black},
-  {num: 11, color: black},
-  {num: 12, color: red},
-  {num: 13, color: black},
-  {num: 14, color: red},
-  {num: 15, color: black},
-  {num: 16, color: red},
-  {num: 17, color: black},
-  {num: 18, color: red},
-  {num: 19, color: red},
-  {num: 20, color: black},
-  {num: 21, color: red},
-  {num: 22, color: black},
-  {num: 23, color: red},
-  {num: 24, color: black},
-  {num: 25, color: red},
-  {num: 26, color: black},
-  {num: 27, color: red},
-  {num: 28, color: black},
-  {num: 29, color: black},
-  {num: 30, color: red},
-  {num: 31, color: black},
-  {num: 32, color: red},
-  {num: 33, color: black},
-  {num: 34, color: red},
-  {num: 35, color: black},
-  {num: 36, color: red}
+  {num: 1, color: red, odds: 35},
+  {num: 2, color: black, odds: 35},
+  {num: 3, color: red, odds: 35},
+  {num: 4, color: black, odds: 35},
+  {num: 5, color: red, odds: 35},
+  {num: 6, color: black, odds: 35},
+  {num: 7, color: red, odds: 35},
+  {num: 8, color: black, odds: 35},
+  {num: 9, color: red, odds: 35},
+  {num: 10, color: black, odds: 35},
+  {num: 11, color: black, odds: 35},
+  {num: 12, color: red, odds: 35},
+  {num: 13, color: black, odds: 35},
+  {num: 14, color: red, odds: 35},
+  {num: 15, color: black, odds: 35},
+  {num: 16, color: red, odds: 35},
+  {num: 17, color: black, odds: 35},
+  {num: 18, color: red, odds: 35},
+  {num: 19, color: red, odds: 35},
+  {num: 20, color: black, odds: 35},
+  {num: 21, color: red, odds: 35},
+  {num: 22, color: black, odds: 35},
+  {num: 23, color: red, odds: 35},
+  {num: 24, color: black, odds: 35},
+  {num: 25, color: red, odds: 35},
+  {num: 26, color: black, odds: 35},
+  {num: 27, color: red, odds: 35},
+  {num: 28, color: black, odds: 35},
+  {num: 29, color: black, odds: 35},
+  {num: 30, color: red, odds: 35},
+  {num: 31, color: black, odds: 35},
+  {num: 32, color: red, odds: 35},
+  {num: 33, color: black, odds: 35},
+  {num: 34, color: red, odds: 35},
+  {num: 35, color: black, odds: 35},
+  {num: 36, color: red, odds: 35}
 ];
+
+console.log(wheel);
 function spin(){
-  var spot = Math.floor(Math.random() * wheel.length);
+  var spot = 36; //Math.floor(Math.random() * wheel.length);
 
   return spot;
 }
 var spot = spin();
 var num = wheel[spot-1].num;
 var color = wheel[spot-1].color;
-return [num, color];
+var odds = wheel[spot-1].odds;
+return [num, color, odds];
 }
 
 
-var input = input();
-console.log(input);
-var result = randomSpin()[0];
-console.log(result);
+var inputStr = input();
+var slot = randomSpin();
+var result = slot[0];
 
-if (input === result.toString()) {
+if (inputStr === result.toString()) {
+  console.log(chips);
+  chips += ( parseInt(bet) * parseInt(slot[2]) );
+  console.log(chips);
   alert("Win!");
 } else {
+  chips -= (parseInt(bet));
   console.log(input, result);
   alert("Lose");
 }
+input();
