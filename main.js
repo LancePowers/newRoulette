@@ -6,7 +6,7 @@ turn();
 
 function turn(){
   function input() {
-    bet = prompt("You have " + chips + " How much would you like to bet?");
+    bet = prompt("You have $" + chips + ". How much would you like to bet?");
     while (bet>chips) {
       bet = prompt("Sorry, but you only have " + chips + " How much would you like to bet?");
     }
@@ -61,13 +61,15 @@ function turn(){
 
 
   function spin(){
-    var spot = 36; //Math.floor(Math.random() * wheel.length);
+    var spot = Math.floor(Math.random() * wheel.length);
     return spot;
   }
+
   var spot = spin();
   var num = wheel[spot-1].num;
   var color = wheel[spot-1].color;
   var odds = wheel[spot-1].odds;
+
   return [num, color, odds];
  }
 
@@ -77,13 +79,12 @@ function turn(){
   var result = slot[0];
 
   if (inputStr === result.toString()) {
-    console.log(chips);
     chips += ( parseInt(bet) * parseInt(slot[2]) );
     console.log(chips);
-    alert("Win!");
+    alert("Win! " + chips + " chips left");
   } else {
     chips -= (parseInt(bet));
-    alert("Lose");
+    alert("Lose " + chips + " chips left");
   }
   nextTurn();
 }
