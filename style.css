@@ -1,0 +1,9 @@
+#wheel{
+  max-height: 400px;
+  -webkit-transition: transform 2s;
+    transition: transform 2s;
+}
+.spinWheel{
+  -webkit-transform:rotate(1890deg);
+    transform:rotate(1890deg);
+}
