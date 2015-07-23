@@ -41,8 +41,8 @@ function createWheel(position){
     {num: 34, color: red},
     {num: 35, color: black},
     {num: 36, color: red},
-    {num: 0, color: green},
-    {num: 00, color: green}
+    {num: '0', color: green},
+    {num: '00', color: green}
   ];
   if (position === ""){
     return wheel;
@@ -66,7 +66,7 @@ function Slot(slot){
   this.twelves = twelvesCalc(slot.num);
   this.half = halfCalc(slot.num);
   this.polarity = polarityCalc(slot.num);
-};
+}
 
 //in: slot number. process: find which row the number is in. out: row 1,2, or 3
 function rowCalc(num){

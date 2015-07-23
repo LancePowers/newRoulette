@@ -6,8 +6,33 @@
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <section id= "board" class="container"></section>
-    <!-- <img id="wheel" src="roulette.png" alt="" /> -->
+    <div class='container'>
+      <div class = 'zero-container'>
+        <div id='zero-bet1' class="zero-bet">0</div>
+        <div id='zero-bet2' class="zero-bet">00</div>
+      </div>
+      <div id="wheel-bet" class="wheel-container"></div>
+      <div id="row-bet" class="row-bet-container">
+        <div id='row-bet1' class="row-bet">2 to 1</div>
+        <div id='row-bet2' class="row-bet">2 to 1</div>
+        <div id='row-bet3' class="row-bet">2 to 1</div>
+      </div>
+      <div id="twelves-bet" class="twelves-container">
+        <div id='twelves-bet1' class='twelves-bet'>1st 12</div>
+        <div id='twelves-bet2' class='twelves-bet'>2nd 12</div>
+        <div id='twelves-bet3' class='twelves-bet'>3rd 12</div>
+      </div>
+      <div id='bottom-bet' class='bottom-container'>
+        <div id='half-bet1' class ='bottom-bet'>1-18</div>
+        <div id='even-bet' class ='bottom-bet'>EVEN</div>
+        <div id='red-bet' class ='bottom-bet'>RED</div>
+        <div id='black-bet' class ='bottom-bet'>BLACK</div>
+        <div id='odd-bet' class ='bottom-bet'>ODD</div>
+        <div id='half-bet2' class ='bottom-bet'>19-36</div>
+      </div>
+
+      <!-- <img id="wheel" class = 'wheel-image' src="roulette.png" alt=""> -->
+    </div>
     <button id="spin">SPIN</button>
     <button id="reset">RESET</button>
     <script src="dom.js" charset="utf-8"></script>

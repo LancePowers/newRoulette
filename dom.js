@@ -1,5 +1,5 @@
-document.getElementById('spin').addEventListener('click',function(){spin(1600)});
-document.getElementById('reset').addEventListener('click',function(){spin(-1600)});
+document.getElementById('spin').addEventListener('click',function(){spin(1600);});
+document.getElementById('reset').addEventListener('click',function(){spin(-1600);});
 
 function spin(deg){
   var wheel = document.getElementById('wheel');
@@ -7,12 +7,14 @@ function spin(deg){
   var rotation = "rotate(" + degrees + "deg)";
   wheel.style.webkitTransform = rotation;
 }
-function addSpot(number,color, id){
-  var board = document.getElementById('board');
+
+//need to change
+function addSpot(number,color, id, container){
+  var board = document.getElementById('wheel-bet');
   var spot = document.createElement('div');
   spot.style.background = color;
   spot.innerHTML = number;
-  spot.className = 'spot';
+  spot.className = 'wheel-bet';
   board.appendChild(spot);
 }
 

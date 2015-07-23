@@ -22,12 +22,12 @@ function wheelSpots(){
 }
 
 //for loops to create different spots
-function board(){
+function createBoard(){
   var board = wheelSpots();
-  for (var i = 0; i < board.length; i++) {
+  for (var i = 0; i < 36; i++) {
     var number = board[i].num;
     var color = board[i].color;
     addSpot(number,color,i);
-  };
-
+  }
 }
+createBoard();
