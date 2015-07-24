@@ -60,6 +60,7 @@ function spin(){
 
 //in: array from create wheel (num, color) Process: call individual functions to fill out info required to win. out: object with stored win/lose criteria
 function Slot(slot){
+  // if(this.num !== Number)
   this.num = slot.num;
   this.color = slot.color;
   this.row = rowCalc(slot.num);

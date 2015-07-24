@@ -1,7 +1,7 @@
 document.getElementById('spin').addEventListener('click',function(){spin(1600);});
 document.getElementById('reset').addEventListener('click',function(){spin(-1600);});
 
-function spin(deg){
+function spinAction(deg){
   var wheel = document.getElementById('wheel');
   var degrees = deg;
   var rotation = "rotate(" + degrees + "deg)";
@@ -12,6 +12,7 @@ function spin(deg){
 function addSpot(number,color, id, container){
   var board = document.getElementById('wheel-bet');
   var spot = document.createElement('div');
+  spot.id = number;
   spot.style.background = color;
   spot.innerHTML = number;
   spot.className = 'wheel-bet';
