@@ -58,8 +58,11 @@
 }
 .wheel-image{
   max-height: 400px;
-  -webkit-transition: transform 2s;
-    transition: transform 2s;
+  position: absolute;
+  top: 10px;
+  left:10px;
+  -webkit-transition: transform 10s;
+    transition: transform 10s;
 }
 .spinWheel{
   -webkit-transform:rotate(1890deg);

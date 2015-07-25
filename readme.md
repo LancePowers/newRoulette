@@ -13,7 +13,7 @@ I've been focusing on #2, and I'm fairly confident we can hide the rest of wheel
 
 Starting list of to dos:
 
-1. create a chip object we can add via DOM with -- Lance
+1. create a chip object we can add via DOM with
     chip image:
     bet amount:
     odds:
@@ -23,7 +23,7 @@ Starting list of to dos:
 4. Make the chip draggable
 5. Create eventlisteners for the drop functions
 6. Calculate win/lose and payout amount
-7. Fix css animation for wheelSpin
+7. Fix css animation for wheelSpin -- Lance
 8. Improve readme :-)
 
 
