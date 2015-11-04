@@ -5,29 +5,46 @@ document.getElementById('reset').addEventListener('click', function () {
     spinAction(-1);
 });
 
-var newDegrees = 0,
+var counter = 0,
+    spinIndex = 0,
+    counter = 0,
+    newDegrees = 0,
     degrees = 0;
 
 
 // direction is a janky fix
 function spinAction(direction) {
+    counter++;
     // var testNum = parseInt(prompt("what number would you like to test?"));
+
+    // determines what number the ball will land on
     var testNum = Math.floor(Math.random() * 38);
-    console.log(testNum);
-    randLocation = Math.floor(Math.random() * 360);
-    console.log(randLocation);
+    console.log('the ball should land on: ' + testNum);
+    /**
+     * makes the spinner stop in random position
+     * should have not effect where ball lands
+     */
+    // randLocation = Math.floor(Math.random() * 360);
+    randLocation = 0;
     /**
      * "degrees +=" fixes spin issue
      * ball no longer rotates to correct position
      */
     degrees += randLocation + 1440 - findDegrees(testNum);
-    console.log(degrees);
-    newDegrees = degrees;
+    /**
+     * determines how the ball will move along spinner
+     */
+    var ballRotatation = "rotate(" + (randLocation - (1440 * counter)) + "deg)";
+    ball.style.webkitTransform = ballRotatation;
+    console.log('The ball is rotating ' + ballRotatation + ' degrees');
+    /**
+     * determines the degrees in which the spinner will rotate
+     */
+    var wheelRotation = "rotate(" + (direction * degrees) + "deg)";
+    wheel.style.webkitTransform = wheelRotation;
+    // newDegrees = degrees;
+    // console.log(newDegrees);
 
-    ball.style.webkitTransform = "rotate(" + (randLocation - 1440) + "deg)";
-    var rotation = "rotate(" + (direction * degrees) + "deg)";
-    wheel.style.webkitTransform = rotation;
-    console.log(wheel.style.webkitTransform);
 }
 
 //need to change
@@ -41,54 +58,20 @@ function addSpot(number, color, id, container) {
     board.appendChild(spot);
 }
 
-// function assignDegrees() {
-//     var wheelPosition = [];
-//     var wheelOrder = [2, 14, 35, 23, 4, 16, 33, 21, 6, 18, 31, 19, 8, 12, 29, 25, 10, 27, "00", 1, 13, 36, 24, 3, 15, 34, 22, 5, 17, 32, 20, 7, 11, 30, 26, 9, 28, 0];
-//     var localIncrement = 0;
-//     for (var i = 0; i < wheelOrder.length; i++) {
-//         var test = "";
-//         wheelPosition.push({
-//             order: wheelOrder[i],
-//             increment: localIncrement
-//         });
-//         // degree incrementation for each number on the roulette wheel
-//         localIncrement += (360 / 38);
-//     }
-//     return wheelPosition;
-// }
-//
-// function findDegrees(num) {
-//     var tempPositionArray = assignDegrees();
-//     for (var i = 0; i < tempPositionArray.length; i++) {
-//         if (tempPositionArray[i].order === num) {
-//             return tempPositionArray[i].increment;
-//         }
-//     }
-// }
-
-function assignDegrees() {
-    var wheelPosition = [];
-    // 37 is taking the place of 00, since 00 cannot be represented as a number
-    var wheelOrder = [0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 37, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2];
-    var localIncrement = 0;
-    for (var i = 0; i < wheelOrder.length; i++) {
-        // var test = "";
-        wheelPosition.push({
-            order: wheelOrder[i],
-            increment: localIncrement
-        });
-        // degree incrementation for each number on the roulette wheel
-        localIncrement += (360 / 38);
-    }
-    console.log(wheelPosition);
-    return wheelPosition;
-}
-
 function findDegrees(num) {
-    var tempPositionArray = assignDegrees();
-    for (var i = 0; i < tempPositionArray.length; i++) {
-        if (tempPositionArray[i].order === num) {
-            return tempPositionArray[i].increment;
-        }
-    }
+  console.log('starting value of spin index = ' + spinIndex);
+  var newIndex;
+  var wheelOrder = [0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 37, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2];
+  if (wheelOrder.indexOf(num) < spinIndex) {
+    newIndex = wheelOrder.length - spinIndex + wheelOrder.indexOf(num);
+    console.log('newIndex: ' +newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
+    spinIndex = wheelOrder.indexOf(num);
+  } else {
+    newIndex = wheelOrder.indexOf(num) - spinIndex;
+    console.log('newIndex: ' +newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
+    spinIndex = wheelOrder.indexOf(num);
+  }
+  // spinIndex = newIndex;
+  console.log('spin index = ' + spinIndex);
+  return newIndex * (360 / 38);
 }
