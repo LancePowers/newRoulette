@@ -1,8 +1,4 @@
 
-
-
-
-//Class constructor for chips. adds value image and unique? id
 function Chip(color,place){
   this.chipCount = game.chips;
   if(color === 'red'){

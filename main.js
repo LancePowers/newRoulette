@@ -1,6 +1,14 @@
-//Function to get and verify users input
-var chips = 100;
-//bet input goes here.
+function Game() {
+    this.chipCount = 0;
+    this.chips = [];
+}
+
+Game.prototype.init = function () {
+    for (var i = 0; i < 10; i++) {
+        var chip = new Chip('red', 5);
+        this.chips.push(chip);
+    }
+}
 
 //in: two object variables process: compare the variables out: boolean for win
 function winCheck(slotVal, boardVal) {
@@ -30,3 +38,6 @@ function createBoard() {
     }
 }
 createBoard();
+
+var game = new Game();
+game.init();

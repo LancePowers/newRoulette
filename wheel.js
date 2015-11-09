@@ -177,54 +177,7 @@ function spin() {
 }
 
 //in: array from create wheel (num, color) Process: call individual functions to fill out info required to win. out: object with stored win/lose criteria
-function Slot(slot) {
-    // if(this.num !== Number)
-    this.num = slot.num;
-    this.color = slot.color;
-    this.row = rowCalc(slot.num);
-    this.twelves = twelvesCalc(slot.num);
-    this.half = halfCalc(slot.num);
-    this.polarity = polarityCalc(slot.num);
-}
 
-
-//in: slot number. process: find which row the number is in. out: row 1,2, or 3
-//Wheel.prototype.rowCalc = fn
-
-function rowCalc(num) {
-    var row = num;
-    while (row > 3) {
-        row -= 3;
-    }
-    return row;
-}
-
-//in: slot number. Process: find which group of 12 Out: bottom(1) middle (2) or top (3)
-function twelvesCalc(num) {
-    if (num < 13) {
-        return 1;
-    } else if (num < 25) {
-        return 2;
-    } else return 3;
-}
-
-//in: slot number. process: check to see which half the number falls in bottom (1) top (2)
-function halfCalc(num) {
-    if (num < 19) {
-        return 1;
-    } else {
-        return 2;
-    }
-}
-
-//in: slot number. process: check to see if the # is even or odd. out: even or odd
-function polarityCalc(num) {
-    if (num % 2 === 0) {
-        return "even";
-    } else {
-        return "odd";
-    }
-}
 
 function assignDegrees() {
     var wheelPosition = [];

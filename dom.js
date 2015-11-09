@@ -1,9 +1,6 @@
 document.getElementById('spin').addEventListener('click', function () {
     spinAction(1);
 });
-document.getElementById('reset').addEventListener('click', function () {
-    spinAction(-1);
-});
 
 
 // direction is a janky fix
@@ -21,16 +18,29 @@ function spinAction(direction) {
     wheel.style.webkitTransform = rotation;
 }
 
-//need to change
-function addSpot(number, color, id, container) {
+
+function addSpot(number, color) {
     var board = document.getElementById('wheel-bet');
-    var spot = document.createElement('div');
-    spot.id = number;
-    spot.style.background = color;
-    spot.innerHTML = number;
-    spot.className = 'wheel-bet';
-    board.appendChild(spot);
+    var elem = createElement(number, color)
+    var spot = new Slot({
+        num: number,
+        color: color,
+        elem: elem
+    })
+    board.appendChild(spot.elem);
+    spot.droppable();
 }
+
+function createElement(number, color) {
+    var elem = document.createElement("div");
+    elem.innerHTML = number;
+    elem.id = number + '-spot';
+    elem.style.background = color;
+    elem.className = 'wheel-bet';
+    return elem;
+}
+
+
 
 function assignDegrees() {
     var wheelPosition = [];
