@@ -1,70 +1,95 @@
-.container{
-  position: fixed;
-  margin: 40px;
-  width:800px;
+.container {
+    position: fixed;
+    margin: 40px;
+    width: 800px;
 }
-.zero-container{
-  width: 75px;
-  margin:0;
-  float: left;
-}
-.wheel-container{
-  float: left;
-  width: 600px;
-  height: 150px;
-}
-.row-bet-container{
-  float: left;
-  width: 50px;
-  height: 150px;
-  background-color: green;
-}
-.twelves-container{
- clear:both;
- margin-left: 75px;
- text-align: center;
-}
-.bottom-container{
-  clear: both;
-  margin-left: 75px;
-  text-align: center;
-}
-.zero-bet{
- height: 75px;
- background: green;
- text-align: center;
-}
-.wheel-bet{
-  width: 50px;
-  height: 50px;
-  position: relative;
-  float: left;
-  color: white;
-}
-.row-bet{
-  width: 50px;
-  height: 50px;
-  transform: rotate(270deg);
-  text-align: center;
 
+.zero-container {
+    width: 75px;
+    margin: 0;
+    float: left;
 }
-.twelves-bet{
-  float: left;
-  width: 200px;
+
+.wheel-container {
+    float: left;
+    width: 600px;
+    height: 150px;
 }
-.bottom-bet{
-  float:left;
-  width: 100px;
+
+.row-bet-container {
+    float: left;
+    width: 50px;
+    height: 150px;
+    background-color: green;
 }
-.wheel-image{
-  max-height: 400px;
-  position: absolute;
-  top: 10px;
-  left:10px;
-  -webkit-transition: transform 10s;
+
+.twelves-container {
+    clear: both;
+    margin-left: 75px;
+    text-align: center;
+}
+
+.bottom-container {
+    clear: both;
+    margin-left: 75px;
+    text-align: center;
+}
+
+.zero-bet {
+    height: 75px;
+    background: green;
+    text-align: center;
+}
+
+.wheel-bet {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    float: left;
+    color: white;
+}
+
+.row-bet {
+    width: 50px;
+    height: 50px;
+    transform: rotate(270deg);
+    text-align: center;
+}
+
+.twelves-bet {
+    float: left;
+    width: 200px;
+}
+
+.bottom-bet {
+    float: left;
+    width: 100px;
+}
+
+.wheel-image {
+    max-height: 400px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    -webkit-transition: transform 10s;
     transition: transform 10s;
 }
-.spinWheel{
-  -webkit-transform:rotate(1890deg);
-    transform:rotate(1890deg);
+
+.spinWheel {
+    -webkit-transform: rotate(1890deg);
+    transform: rotate(1890deg);
+}
+
+.circle {
+    background-color: #FFF;
+    border: 3px solid #000;
+    border-radius: 18px;
+    box-shadow: 0 0 2px #888;
+    height: 100px;
+    width: 100px;
+}
+
+.chip {
+    position: absolute;
+    max-height: 50px;
 }

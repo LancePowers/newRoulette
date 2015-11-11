@@ -1,9 +1,6 @@
 document.getElementById('spin').addEventListener('click', function () {
     spinAction(1);
 });
-document.getElementById('reset').addEventListener('click', function () {
-    spinAction(-1);
-});
 
 var counter = 0,
     spinIndex = 0,
@@ -47,31 +44,42 @@ function spinAction(direction) {
 
 }
 
-//need to change
-function addSpot(number, color, id, container) {
+
+function addSpot(number, color) {
     var board = document.getElementById('wheel-bet');
-    var spot = document.createElement('div');
-    spot.id = number;
-    spot.style.background = color;
-    spot.innerHTML = number;
-    spot.className = 'wheel-bet';
-    board.appendChild(spot);
+    var elem = createElement(number, color)
+    var spot = new Slot({
+        num: number,
+        color: color,
+        elem: elem
+    })
+    board.appendChild(spot.elem);
+    spot.droppable();
+}
+
+function createElement(number, color) {
+    var elem = document.createElement("div");
+    elem.innerHTML = number;
+    elem.id = number + '-spot';
+    elem.style.background = color;
+    elem.className = 'wheel-bet';
+    return elem;
 }
 
 function findDegrees(num) {
-  console.log('starting value of spin index = ' + spinIndex);
-  var newIndex;
-  var wheelOrder = [0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 37, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2];
-  if (wheelOrder.indexOf(num) < spinIndex) {
-    newIndex = wheelOrder.length - spinIndex + wheelOrder.indexOf(num);
-    console.log('newIndex: ' +newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
-    spinIndex = wheelOrder.indexOf(num);
-  } else {
-    newIndex = wheelOrder.indexOf(num) - spinIndex;
-    console.log('newIndex: ' +newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
-    spinIndex = wheelOrder.indexOf(num);
-  }
-  // spinIndex = newIndex;
-  console.log('spin index = ' + spinIndex);
-  return newIndex * (360 / 38);
+    console.log('starting value of spin index = ' + spinIndex);
+    var newIndex;
+    var wheelOrder = [0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 37, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2];
+    if (wheelOrder.indexOf(num) < spinIndex) {
+        newIndex = wheelOrder.length - spinIndex + wheelOrder.indexOf(num);
+        console.log('newIndex: ' + newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
+        spinIndex = wheelOrder.indexOf(num);
+    } else {
+        newIndex = wheelOrder.indexOf(num) - spinIndex;
+        console.log('newIndex: ' + newIndex + ' = wheelOrder.indexOf(num) ' + wheelOrder.indexOf(num) + '- spinIndex: ' + spinIndex);
+        spinIndex = wheelOrder.indexOf(num);
+    }
+    // spinIndex = newIndex;
+    console.log('spin index = ' + spinIndex);
+    return newIndex * (360 / 38);
 }
